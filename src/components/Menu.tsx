@@ -12,7 +12,20 @@ import {
 
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
+import { logOutOutline, 
+          logOutSharp , 
+          archiveOutline, 
+          archiveSharp, 
+          bookmarkOutline, 
+          heartOutline, 
+          heartSharp, mailOutline, 
+          mailSharp, 
+          paperPlaneOutline, 
+          paperPlaneSharp, 
+          trashOutline, trashSharp, 
+          warningOutline, 
+          warningSharp, 
+          chevronForwardOutline, } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -58,10 +71,16 @@ const appPages: AppPage[] = [
     url: '/page/Spam',
     iosIcon: warningOutline,
     mdIcon: warningSharp
+  },
+  {
+    title: 'Logout',
+    url: '/page/Logout',
+    iosIcon: logOutOutline,
+    mdIcon: logOutSharp
   }
 ];
 
-const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+const labels = ['ตัวต้านทาน', 'คาปาซิเตอร์', 'ไดโอด', 'ทรานซิสเตอร์', 'รีเลย์', 'ไอซี', 'ไม่โครคอรโทลเลอร์'];
 
 const Menu: React.FC = () => {
   const location = useLocation();
@@ -85,10 +104,10 @@ const Menu: React.FC = () => {
         </IonList>
 
         <IonList id="labels-list">
-          <IonListHeader>Labels</IonListHeader>
+          <IonListHeader>อุปกรณ์อิเล็กทรอนิก</IonListHeader>
           {labels.map((label, index) => (
             <IonItem lines="none" key={index}>
-              <IonIcon slot="start" icon={bookmarkOutline} />
+              <IonIcon slot="end" icon={chevronForwardOutline} />
               <IonLabel>{label}</IonLabel>
             </IonItem>
           ))}
